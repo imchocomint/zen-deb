@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ "$1" = "configure" ] || [ "$1" = "install" ]; then
+    echo "Creating symbolic links for binaries..."
+    ln -s /usr/share/zen /usr/bin/zen
+    ln -s /usr/share/zen-bin /usr/bin/zen-bin
+    ln -s /usr/share/updater /usr/bin/zen-updater
+fi
+
+exit 0

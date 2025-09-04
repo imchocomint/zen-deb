@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment= welcome to a calmer internet
+Exec=zen
+GenericName=Zen Browser
+Name=Zen Browser
+NoDisplay=false
+Path= /usr/share/zen
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+Icon=zen

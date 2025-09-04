@@ -1,0 +1,10 @@
+#!/bin/bash
+# prerm script for the zen package
+
+# Check if the package is being removed or purged
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+    echo "Removing symbolic links for binaries..."
+    rm /usr/bin/zen
+    rm /usr/bin/zen-bin
+    rm /usr/bin/zen-updater
+fi

@@ -1,0 +1,7 @@
+Package: zen
+Section: main
+Architecture: amd64
+Maintainer: Tran Thien Minh <bbconisme@proton.me>
+Priority: optional
+Description: welcome to a calmer internet
+Version: 1.15.3b
