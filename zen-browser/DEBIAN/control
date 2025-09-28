@@ -1,4 +1,4 @@
-Package: zen
+Package: zen-browser
 Section: main
 Architecture: amd64
 Maintainer: Tran Thien Minh <bbconisme@proton.me>
