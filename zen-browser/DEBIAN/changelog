@@ -1,4 +1,10 @@
-zen (1.15.3b) stable; urgency=low
+zen-browser (1.16.2b) stable; urgency=low
+
+  * Bug fixes
+
+ -- Tran Thien Minh <bbconisme@proton.me>  Sun, 20 Sep 2025 10:05:00 +0700
+
+zen-browser (1.15.3b) stable; urgency=low
 
   * Initial release.
 
