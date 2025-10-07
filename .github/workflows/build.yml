@@ -1,0 +1,56 @@
+name: Build and upload
+
+on:
+  # Trigger the workflow on pushes and pull requests to the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # Allow manual runs via the GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  build_package:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure build tools
+        # 'dpkg-dev' provides tools like dpkg-deb, essential for package creation.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev
+
+      - name: Execute Custom Package Build Script
+        # Ensure the script is executable and run it. The script must generate 
+        # the final .deb file in the repository root ($GITHUB_WORKSPACE).
+        run: |
+          chmod +x ./main.sh
+          ./main.sh
+        
+      - name: Locate and Set Output Path for .deb file
+        id: get_deb_path
+        run: |
+          # Find the first .deb file in the root directory and store its path.
+          DEB_PATH=$(find ${{ github.workspace }} -maxdepth 1 -name "*.deb" | head -n 1)
+          
+          if [ -z "$DEB_PATH" ]; then
+            echo "::error::No .deb package found in the root directory after build."
+            exit 1
+          fi
+          
+          echo "Found package at: $DEB_PATH"
+          echo "deb_path=$DEB_PATH" >> $GITHUB_OUTPUT
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          # Use a dynamic name including the commit SHA for traceability
+          name: debian-package-${{ github.sha }}
+          path: ${{ steps.get_deb_path.outputs.deb_path }}
+          retention-days: 7
+          if-no-files-found: error
