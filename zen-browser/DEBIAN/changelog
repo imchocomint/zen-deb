@@ -1,3 +1,9 @@
+zen-browser (1.17.1b) stable; urgency=low
+
+  * Bug fixes
+
+ -- Tran Thien Minh <bbconisme@proton.me>  Thu, 23 Sep 2025 10:05:00 +0700
+
 zen-browser (1.16.3b) stable; urgency=low
 
   * Bug fixes
