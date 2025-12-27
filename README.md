@@ -1,6 +1,8 @@
 # Zen Browser for Debian
 We no longer offer builds on Release. You have to grab them on GitHub Actions now.
 
+Or: https://nightly.link/imchocomint/zen-deb/workflows/build/main?preview
+
 ## Installing
 First click on the green check mark
 
